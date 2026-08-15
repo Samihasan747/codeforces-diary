@@ -1,43 +1,43 @@
-#include<bits/stdc++.h>
+//Using List
+ 
+#include<iostream>
+#include<list>
 using namespace std;
  
-int main()
-{
-    long int n;
-    cin>>n;
-    int arr[n];
-    int a=0 , b=0;
+int main(){
+ 
+    list<int> l;
     int s=0 , d=0;
  
+    int n;
+    cin>>n;
     for(int i=0 ; i<n ; i++){
-    cin>>arr[i];
+        int x;
+        cin>>x;
+        l.push_back(x);
     }
  
-    for(int i=0 ; i<n ; i++){
+    for(int i=0 ; !l.empty() ; i++)
+    {
         if(i%2 == 0){
-            if(arr[a] > arr[n-b-1]){
-                s+=arr[a];
-                a++;
+            if(l.front() > l.back()){
+                d+=l.front();
+                l.pop_front();
+            }else{
+                d+=l.back();
+                l.pop_back();
             }
-            else{
-                s+=arr[n-b-1];
-                b++;
-            }
-        }
-        else{
-            if(arr[a] > arr[n-b-1]){
-                d+=arr[a];
-                a++;
-            }
-            else{
-                d+=arr[n-b-1];
-                b++;
+        }else{
+             if(l.front() > l.back()){
+                 s+=l.front();
+                l.pop_front();
+            }else{
+                s+=l.back();
+                l.pop_back();
             }
         }
- 
     }
- 
-      cout<<s<<"  "<<d;
- 
+        
+    cout<<d<<" "<<s<<endl;
  
 }
