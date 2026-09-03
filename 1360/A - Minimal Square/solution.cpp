@@ -16,6 +16,7 @@ int main()
             cout<<a*a<<endl;
         }else{
             cout<<4*b*b<<endl;
+            
         }
     }
 }
